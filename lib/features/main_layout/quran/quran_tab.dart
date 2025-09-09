@@ -72,15 +72,7 @@ class _QuranTabState extends State<QuranTab> {
               ),
             ),
             SizedBox(height: 20),
-            Text(
-              "Most Recently",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: ColorsManager.ofWhite,
-              ),
-            ),
-            SizedBox(height: 10),
+
            MostRecentSuras(key:mostRecentKey ,),
             SizedBox(height: 10),
             Text(

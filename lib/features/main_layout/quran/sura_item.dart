@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app_online_sat/core/prefs_manager/prefs_manager.dart';
 import 'package:islami_app_online_sat/core/resources/assets_manager.dart';
 import 'package:islami_app_online_sat/core/resources/colors_manager.dart';
 import 'package:islami_app_online_sat/core/resources/constant_manager.dart';
 import 'package:islami_app_online_sat/core/routes_manager/routes_manager.dart';
 import 'package:islami_app_online_sat/features/main_layout/quran/most_recent_suras.dart';
 import 'package:islami_app_online_sat/features/main_layout/quran/quran_tab.dart';
-import 'package:islami_app_online_sat/models/most_recent.dart';
 import 'package:islami_app_online_sat/models/sura_model.dart';
 
 class SuraItem extends StatelessWidget {
@@ -17,7 +17,7 @@ final GlobalKey<MostRecentSurasState> mostRecentKey;
     return InkWell(
       onTap: (){
 
-        MostRecent.addMostRecent(sura);
+        PrefsManager.saveSuraIndex(sura.suraIndex);
         Navigator.pushNamed(context, RoutesManager.suraDetails,arguments:SuraDetailsArguments(sura: sura, mostRecentKey: mostRecentKey));
       },
 
