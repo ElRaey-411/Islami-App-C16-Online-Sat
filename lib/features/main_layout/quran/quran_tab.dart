@@ -3,6 +3,7 @@ import 'package:islami_app_online_sat/core/extensions/context_extensions.dart';
 import 'package:islami_app_online_sat/core/resources/assets_manager.dart';
 import 'package:islami_app_online_sat/core/resources/colors_manager.dart';
 import 'package:islami_app_online_sat/features/main_layout/quran/most_recent_item.dart';
+import 'package:islami_app_online_sat/features/main_layout/quran/most_recent_suras.dart';
 import 'package:islami_app_online_sat/features/main_layout/quran/sura_item.dart';
 import 'package:islami_app_online_sat/models/sura_model.dart';
 
@@ -11,13 +12,16 @@ class QuranTab extends StatefulWidget {
 
   @override
   State<QuranTab> createState() => _QuranTabState();
+
 }
 
 class _QuranTabState extends State<QuranTab> {
   List<SuraModel> filteredSuras = SuraModel.suras;
+  GlobalKey<MostRecentSurasState> mostRecentKey = GlobalKey<MostRecentSurasState>();
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -77,15 +81,7 @@ class _QuranTabState extends State<QuranTab> {
               ),
             ),
             SizedBox(height: 10),
-            SizedBox(
-              height: context.getHeight * 0.17,
-              child: ListView.separated(
-                separatorBuilder: (context, index) => SizedBox(width: 8),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => MostRecentItem(),
-                itemCount: 10,
-              ),
-            ),
+           MostRecentSuras(key:mostRecentKey ,),
             SizedBox(height: 10),
             Text(
               "Suras List",
@@ -108,7 +104,7 @@ class _QuranTabState extends State<QuranTab> {
                 color: ColorsManager.white,
               ),
               itemBuilder: (context, index) =>
-                  SuraItem(sura: filteredSuras[index]),
+                  SuraItem(sura: filteredSuras[index],mostRecentKey: mostRecentKey,),
               itemCount: filteredSuras.length,
             ),
           ],

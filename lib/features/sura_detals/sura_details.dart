@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app_online_sat/core/resources/assets_manager.dart';
 import 'package:islami_app_online_sat/core/resources/colors_manager.dart';
+import 'package:islami_app_online_sat/features/main_layout/quran/sura_item.dart';
 import 'package:islami_app_online_sat/features/sura_detals/verse_item.dart';
 import 'package:islami_app_online_sat/models/sura_model.dart';
 
@@ -15,20 +16,28 @@ class SuraDetails extends StatefulWidget {
 }
 
 class _SuraDetailsState extends State<SuraDetails> {
-  late SuraModel suraArguments;
+  late SuraDetailsArguments suraArguments;
   List<String> verses = [];
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    suraArguments = ModalRoute.of(context)?.settings.arguments as SuraModel;
-    loadSuraContent(suraArguments.suraIndex);
+    suraArguments = ModalRoute.of(context)?.settings.arguments as SuraDetailsArguments;
+    loadSuraContent(suraArguments.sura.suraIndex);
   }
+@override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    suraArguments.mostRecentKey.currentState?.fetchMostRecent();
 
+    /// access fetchMostRecent -> MostRecentState
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(suraArguments.suraNameEn)),
+      appBar: AppBar(title: Text(suraArguments.sura.suraNameEn)),
       body: Column(
         children: [
           Stack(
@@ -42,7 +51,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                 ],
               ),
               Text(
-                suraArguments.suraNameAr,
+                suraArguments.sura.suraNameAr,
                 style: TextStyle(
                   color: ColorsManager.gold,
                   fontSize: 24,
