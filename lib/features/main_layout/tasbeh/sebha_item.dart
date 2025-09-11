@@ -18,33 +18,34 @@ class _SebhaItemState extends State<SebhaItem> {
   Widget build(BuildContext context) =>
       Container(
         alignment: Alignment.center,
-        child: Stack(
-            children: [
-              InkWell(
-                onTap: () {
-                  widget.onTasbeh();
-                },
-                child: Transform.rotate(angle: TasbehTab.sebhaAngle,
+        child: InkWell(
+          onTap: () {
+            widget.onTasbeh();
+          },
+          child: Stack(
+              children: [
+                Transform.rotate(angle: TasbehTab.sebhaAngle,
+                    alignment: Alignment(0, .17),
                     child: Image.asset(ImageAssets.sebha,)
                 ),
-              ),
-              Positioned(
-                bottom: 140,
-                right: 110,
-                child: Column(
-                    children: [
-                      Text(TasbehTab.duaa2Text, style: TextStyle(fontSize: 36,
-                          color: ColorsManager.white,
-                          fontWeight: FontWeight.bold)),
-                      Text("${TasbehTab.duaa2Counter}", style: TextStyle(
-                          fontSize: 36,
-                          color: ColorsManager.white,
-                          fontWeight: FontWeight.bold)),
-                    ]
+                Positioned(
+                  bottom: 130,
+                  left: 120,
+                  child: Column(
+                      children: [
+                        Text(TasbehTab.duaa2Text, style: TextStyle(fontSize: 36,
+                            color: ColorsManager.white,
+                            fontWeight: FontWeight.bold)),
+                        Text("${TasbehTab.duaa2Counter}", style: TextStyle(
+                            fontSize: 36,
+                            color: ColorsManager.white,
+                            fontWeight: FontWeight.bold)),
+                      ]
+                  ),
                 ),
-              ),
 
-            ]
+              ]
+          ),
         ),
       );
 }
