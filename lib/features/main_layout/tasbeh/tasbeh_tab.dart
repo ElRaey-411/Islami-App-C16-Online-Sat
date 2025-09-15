@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app_online_sat/core/resources/colors_manager.dart';
 import 'package:islami_app_online_sat/features/main_layout/tasbeh/sebha_item.dart';
-
 import '../../../core/resources/assets_manager.dart';
 
 class TasbehTab extends StatefulWidget {
