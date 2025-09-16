@@ -14,7 +14,11 @@ abstract class ImageAssets {
   static const String sebha = "$base/sebha.png";
   static const String tasbehBg = "$base/tasbeh_bg.png";
   static const String tasbehSubtitle = "$base/tasbeh_subtitle.png";
-
+  static const String onboardingWelcome = "$base/onboarding_welcome.png";
+  static const String onboardingMosque = "$base/onboarding_mosque.png";
+  static const String onboardingQuraan = "$base/onboarding_quraan.png";
+  static const String onboardingDuaa = "$base/onboarding_duaa.png";
+  static const String onboardingRadio = "$base/onboarding_radio.png";
 }
 
 abstract class IconAssets {
