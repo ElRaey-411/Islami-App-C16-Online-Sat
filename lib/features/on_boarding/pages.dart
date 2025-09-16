@@ -20,10 +20,7 @@ class Pages {
       title: "",
       bodyWidget: Column(
         children: [
-          SafeArea(child: Image.asset(ImageAssets.islamiLogo)),
-          const SizedBox(height: 50),
           Image.asset(bodyImage),
-          const SizedBox(height: 60),
           Text(
             subtitle,
             style: TextStyle(
@@ -32,7 +29,6 @@ class Pages {
               color: ColorsManager.gold,
             ),
           ),
-          const SizedBox(height: 20),
           Text(
             description,
             style: TextStyle(
