@@ -21,9 +21,9 @@ class Pages {
       bodyWidget: Column(
         children: [
           Image.asset(ImageAssets.islamiLogo),
-           SizedBox(height: 50),
+          SizedBox(height: 50),
           Image.asset(bodyImage),
-           SizedBox(height: 60),
+          SizedBox(height: 40),
           Text(
             subtitle,
             style: TextStyle(
@@ -32,7 +32,7 @@ class Pages {
               color: ColorsManager.gold,
             ),
           ),
-           SizedBox(height: 20),
+          SizedBox(height: 20),
           Text(
             description,
             style: TextStyle(
